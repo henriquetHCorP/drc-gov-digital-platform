@@ -12,7 +12,7 @@ export const connect = async () => {
     try {
         await mongoose.connect(process.env.MONGODB_URI, {
             dbName: 'drc-gov-digital-platform', 
-            userNewUrlParser: true, 
+            useNewUrlParser: true, 
             useUnifiedTopology: true, 
         }); 
         console.log('Connected to MongoDB'); 
