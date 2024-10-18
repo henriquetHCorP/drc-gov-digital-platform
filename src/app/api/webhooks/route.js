@@ -92,6 +92,7 @@ export async function POST(req) {
 
   if (eventType === 'user.deleted') {
     const { id } = evt?.data;
+    // the id above here is coming from the clerk event==> user.created 
     try {
       await deleteUser(id);
     } catch (error) {

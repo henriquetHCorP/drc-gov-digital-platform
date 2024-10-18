@@ -9,6 +9,8 @@ export const createOrUpdateUser = async (
   image_url,
   email_addresses,
   username
+  //id, first_name, last_name, ...username are information comming from clerk ==> webhook ==> user.created event. 
+  
 ) => {
   try {
     await connect();
