@@ -73,7 +73,7 @@ export async function POST(req) {
       if (user && eventType === 'user.created') {
         try {
           await clerkClient.users.updateUserMetadata(id, {
-            // here we only update the id, so id above here is the id coming from clerk which will be updated to the user._id coming from mongodb; 
+            // here we only update the id, so id above here is the id coming from clerk which will be updated to the user._id coming from mongodb to be updated inside clerk; 
             publicMetadata: {
               userMongoId: user._id,
             },
