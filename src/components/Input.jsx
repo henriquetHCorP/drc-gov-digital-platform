@@ -19,9 +19,7 @@ export default function Input() {
   const [imageFileUploading, setImageFileUploading] = useState(false); 
   const imagePickRef = useRef(null); 
 
-   if (!isSignedIn || !isLoaded) { 
-    return null; 
-   } 
+   
    const addImageToPost = async (e) => {
     // once we choose an image, we want to convert that image into a readable file; 
     const file = e.target.files[0];
@@ -65,6 +63,9 @@ export default function Input() {
         }
       ) 
    }
+   if (!isSignedIn || !isLoaded) { 
+    return null; 
+   } 
   return (
     <div className="flex border-b border-gray-200 p-3 space-x-3 w-full">
       <img 
@@ -108,7 +109,7 @@ export default function Input() {
              disabled
              className="bg-blue-400 text-white px-4 py-1.5 rounded-full font-bold shadow-md hover:brightness-95 disabled:opacity-50"
             >
-              Post. 
+              Post
               </button>  
 
            </div>
