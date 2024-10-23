@@ -90,9 +90,10 @@ export default function Input() {
     setText('');
     setSelectedFile(null);
     setImageFileUrl(null); 
-    // location.reload(); 
+    location.reload(); 
 
    }
+   // !!!!!!!! find out more Henriquet !!!!
    if (!isSignedIn || !isLoaded) { 
      return null; 
     } 
