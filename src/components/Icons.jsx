@@ -3,9 +3,13 @@ import { useEffect, useState } from 'react';
 import { HiOutlineChat, HiOutlineHeart, HiOutlineTrash, HiHeart } from 'react-icons/hi';
 import { useUser } from '@clerk/nextjs'; 
 import { useRouter } from 'next/navigation';
+
+import { modalAtom } from '../atom/modalAtom'; 
+import { useRecoilState } from 'recoil';   
 export default function Icons({post}) {
     const [isLiked, setIsLiked] = useState(false); 
-    const [likes, setLikes] = useState(post.likes || []); 
+    const [likes, setLikes] = useState(post.likes || []);
+    const [open, setOpen] = useRecoilState(modalAtom);  
     const { user } = useUser(); 
     const router  = useRouter(); 
 
@@ -59,7 +63,10 @@ export default function Icons({post}) {
     }
     return (
         <div className="flex justify-start gap-5 p-2 text-gray-500">
-            <HiOutlineChat className="h-8 w-8 cursor-pointer rounded-full transition duration-500 ease-in-out p-2 hover:text-sky-500 hover:bg-sky-100" /> 
+            <HiOutlineChat 
+             className="h-8 w-8 cursor-pointer rounded-full transition duration-500 ease-in-out p-2 hover:text-sky-500 hover:bg-sky-100" 
+             onClick={() => setOpen(!open)}
+             /> 
             <div className="flex items-center">
                 {isLiked ? (
                     <HiHeart 
