@@ -13,13 +13,19 @@ export const PUT = async (req) => {
    const post = await Post.findById(data.postId); 
    if(post.likes.includes(user.publicMetadata.userMongoId)) {
   // above here,it means that you have already like the post and if you click you must remove the like
-  const updatedPost = await Post.findByIdAndUpdate
-  (data.postId, {$pull: { likes: user.publicMetadata.userMongoId } }, { new: true }); 
-  return new Response(JSON.stringify(updatedPost), {status: 200}); 
+  const updatedPost = await Post.findByIdAndUpdate(
+    data.postId, 
+    { $pull: { likes: user.publicMetadata.userMongoId } },
+     { new: true }
+    ); 
+  return new Response(JSON.stringify(updatedPost), {status: 200 }); 
    } else {
     // we wanna add the like
-    const updatedPost = await Post.findByIdAndUpdate
-    (data.postId, {$addToSet: { likes: user.publicMetadata.userMongoId } }, { new: true }); 
+    const updatedPost = await Post.findByIdAndUpdate(
+      data.postId, 
+      { $addToSet: { likes: user.publicMetadata.userMongoId } }, 
+      { new: true }
+    ); 
     return new Response(JSON.stringify(updatedPost), { status: 200 }); 
    }
   } catch(error) {
