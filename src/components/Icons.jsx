@@ -13,11 +13,11 @@ export default function Icons({post}) {
     const { user } = useUser(); 
     const router  = useRouter(); 
 
-    const likePost = async () => {
+    const likePost = () => {
         if(!user) {
             return router.push('/sign-in');  
         }
-        const like = await fetch('/api/post/like', {
+        const like = fetch('/api/post/like', {
             method: 'PUT', 
             headers: {
                 'Content-Type' : 'application/json',
