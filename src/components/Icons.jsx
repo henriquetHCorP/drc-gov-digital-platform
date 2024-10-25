@@ -13,35 +13,35 @@ export default function Icons({post}) {
     const { user } = useUser(); 
     const router  = useRouter(); 
 
-    const likePost = () => {
-        if (!user) {
-          return router.push('/sign-in');
+    const likePost = async () => {
+        if(!user) {
+            return router.push('/sign-in');  
         }
-        const like = fetch('/api/post/like', {
-          method: 'PUT',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ postId: post._id }),
-        });
-        if (like && isLiked) {
-          setLikes(
-            likes.filter((like) => like !== user.publicMetadata.userMongoId)
-          );
+        const like = await fetch('/api/post/like', {
+            method: 'PUT', 
+            headers: {
+                'Content-Type' : 'application/json',
+            },
+            body: JSON.stringify({ postId: post._id}), 
+            // above here, we send the post._id information as postId; 
+        }); 
+        if(like && isLiked) {
+            setLikes(likes.filter((like) => (like) !== user.publicMetadata.userMongoId));
+            // above here, if it's already like, we wanna remove the like 
+        } 
+          if(like && !isLiked) {
+            setLikes([...likes, user.publicMetadata.userMongoId]); 
+            // above here, if it's not liked, like it, 
         }
-        if (like && !isLiked) {
-          setLikes([...likes, user.publicMetadata.userMongoId]);
-        }
-      };
-      useEffect(() => {
-        if (user && likes?.includes(user.publicMetadata.userMongoId)) {
-          setIsLiked(true);
+    }
+    useEffect(() => {
+        if(user && likes?.includes(user.publicMetadata.userMongoId)){
+            setIsLiked(true); 
         } else {
-          setIsLiked(false);
+            setIsLiked(false);
         }
-      }, [likes, user]);
-    
-     
+       
+    }, [likes, user]); 
 
     const deletePost = async () => {
        if(window.confirm('Are you sure you want to delete this post?')){
