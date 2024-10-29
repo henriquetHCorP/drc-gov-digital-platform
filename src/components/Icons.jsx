@@ -9,7 +9,7 @@ import {
 import { useState, useEffect } from 'react';
 import { useUser } from '@clerk/nextjs';
 import { useRouter } from 'next/navigation';
-import { modalAtom, postIdAtom } from '@/atom/modalAtom';
+import { modalAtom, postIdAtom } from '../atom/modalAtom';
 import { useRecoilState } from 'recoil';
 export default function Icons({ post }) {
   const [isLiked, setIsLiked] = useState(false);
