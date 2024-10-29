@@ -56,7 +56,7 @@ export default async function UserPage({ params }) {
               </div>
               <div>
                 <span className='font-bold'>{data.followers.length}</span>{' '}
-                {data.followers.length === 0 || 1 ? 'Follower' : 'Followers'  } 
+                {data.followers.length === 0 || data.followers.length === 1 ? 'Follower' : 'Followers'  } 
               </div>
             </div>
             <div className='mt-4 flex-1'>

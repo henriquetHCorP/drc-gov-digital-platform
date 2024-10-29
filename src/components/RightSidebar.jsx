@@ -9,7 +9,11 @@ export default function RightSidebar() {
   const router = useRouter(); 
   const handleSubmit = (e) => {
     e.preventDefault(); 
-    router.push(`/search/${input}`)
+    router.push(`/search/${input}`);
+    setTimeout(() => {
+      router.refresh();
+    }, 100);
+
 
     if(!input.trim()) return 
     // above here if there's space in our form return according to the record ...
