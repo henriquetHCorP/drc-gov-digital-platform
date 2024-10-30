@@ -1,3 +1,3 @@
- export const PUTE = async()=>{
+ export const PUT = async()=>{
   
  }
