@@ -6,7 +6,7 @@ export const PUT = async (req) => {
   const user = await currentUser();
   try {
     await connect();
-    const data = await req.json();
+    // const data = await req.json();
     if (!user) {
       return { status: 401, body: 'Unauthorized' };
     }
