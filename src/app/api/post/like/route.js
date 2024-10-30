@@ -1,6 +1,6 @@
 
-import Post from '../../../../lib/models/post.model.js'; 
-import { connect } from '../../../../lib/mongodb/mongoose.js'; 
+import Post from '../../../../lib/models/post.model'; 
+import { connect } from '../../../../lib/mongodb/mongoose'; 
 import { currentUser } from '@clerk/nextjs/server'; 
 
 export const PUT = async (req) => {
@@ -19,7 +19,7 @@ export const PUT = async (req) => {
     { $pull: { likes: user.publicMetadata.userMongoId } },
      { new: true }
     ); 
-  return new Response(JSON.stringify(updatedPost)); 
+  return new Response(JSON.stringify(updatedPost), {status: 200 }); 
    } else {
     // we wanna add the like
     const updatedPost = await Post.findByIdAndUpdate(
@@ -27,7 +27,7 @@ export const PUT = async (req) => {
       { $addToSet: { likes: user.publicMetadata.userMongoId } }, 
       { new: true }
     ); 
-    return new Response(JSON.stringify(updatedPost)); 
+    return new Response(JSON.stringify(updatedPost), { status: 200 }); 
    }
   } catch(error) {
     console.log('Error liking the post:', error);
