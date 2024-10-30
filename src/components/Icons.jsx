@@ -8,7 +8,7 @@ import { modalAtom, postIdAtom } from '../atom/modalAtom';
 import { useRecoilState } from 'recoil';   
 export default function Icons({post}) {
     const [isLiked, setIsLiked] = useState(false); 
-    const [likes, setLikes] = useState(post.likes || []);
+    const [likes, setLikes] = useState(post.likes || [] || '');
     const [open, setOpen] = useRecoilState(modalAtom);  
     const [postId, setPostId] = useRecoilState(postIdAtom); 
     const { user } = useUser(); 
