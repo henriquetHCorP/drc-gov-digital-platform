@@ -8,8 +8,8 @@ const user = await currentUser();
     await connect();
     const data = await req.json();
     if (!user) {
-    //   return { status: 401, body: 'Unauthorized' };
-    res.status(401).json({ body: 'Unauthorized' })
+    return { status: 401, body: 'Unauthorized' };
+    // res.status(401).json({ body: 'Unauthorized' })
     }
     const post = await Post.findById(data.postId);
     if (post.likes.includes(user.publicMetadata.userMongoId)) {
