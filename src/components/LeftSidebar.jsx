@@ -12,9 +12,17 @@ export default function LeftSidebar() {
   return (
     <div className='flex flex-col p-3 justify-between h-screen items-center'>
       <div className='flex flex-col gap-4 p-3'>
-        <Link href='/'>
-          <FaXTwitter className='w-16 h-16 cursor-pointer p-3 hover:bg-gray-100 rounded-full transition-all duration-200 ' />
-        </Link>
+        <Link href='/' className="items-center whitespace-nowrap text-sm sm:text-xl font-semibold dark:text-white"> 
+          {/* <FaXTwitter className='w-16 h-16 cursor-pointer p-3 hover:bg-gray-100 rounded-full transition-all duration-200 ' /> */}
+          <img src="/drc-gov-social-media.png" className="shadow-lg hover:shadow-md object-fit bg bg-none w-20 h-20 pb-1"/> 
+        {/* <Link to="/" className="items-center whitespace-nowrap text-sm sm:text-xl font-semibold dark:text-white"> */}
+            <span className="px-2 py-1 bg-gradient-to-r from-blue-500 via-blue-500 to-red-500 rounded-lg text-white">
+                  DRC Gov
+            </span> 
+          <br/> Social Media 
+        {/* </Link> */}
+
+        </Link> 
         <Link
           href='/'
           className='flex items-center p-3 hover:bg-gray-100 rounded-full transition-all duration-200 gap-2 w-fit'
