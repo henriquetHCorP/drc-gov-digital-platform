@@ -8,7 +8,7 @@ const user = await currentUser();
     await connect();
     const data = await req.json();
     if (!user) {
-    //   return { status: 401, body: 'Unauthorized' };
+    return { body: 'Unauthorized' };
     }
     const post = await Post.findById(data.postId);
     if (post.likes.includes(user.publicMetadata.userMongoId)) {
@@ -17,17 +17,17 @@ const user = await currentUser();
         { $pull: { likes: user.publicMetadata.userMongoId } },
         { new: true }
       );
-    //   return new Response(JSON.stringify(updatedPost), { status: 200 });
+     return new Response(JSON.stringify(updatedPost));
     } else {
       const updatedPost = await Post.findByIdAndUpdate(
         data.postId,
         { $addToSet: { likes: user.publicMetadata.userMongoId } },
         { new: true }
       );
-    //   return new Response(JSON.stringify(updatedPost), { status: 200 });
+     return new Response(JSON.stringify(updatedPost));
     }
   } catch (error) {
     console.log('Error liking post:', error);
-    // return new Response('Error liking post', { status: 500 });
+     return new Response('Error liking post');
   }
 };
