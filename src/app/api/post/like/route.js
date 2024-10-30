@@ -3,14 +3,14 @@ import { connect } from '../../../../lib/mongodb/mongoose';
 import { currentUser } from '@clerk/nextjs/server';
 
 export const PUT = async (req) => {
-  const user = await currentUser();
+//   const user = await currentUser();
   try {
-    await connect();
+    // await connect();
     // const data = await req.json();
     if (!user) {
       return { status: 401, body: 'Unauthorized' };
     }
-    const post = await Post.findById(data.postId);
+    // const post = await Post.findById(data.postId);
     // if (post.likes.includes(user.publicMetadata.userMongoId)) {
     //   const updatedPost = await Post.findByIdAndUpdate(
     //     data.postId,
