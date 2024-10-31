@@ -36,7 +36,7 @@ export default function Header() {
           <HiHome className='w-7 h-7 -mt-20' />
           <span className='font-bold hidden xl:inline'>Home</span>
         </Link>
-        <button className='bg-blue-400 text-white rounded-full  hover:brightness-95 transition-all duration-200 w-48 h-9 shadow-md hidden xl:inline font-semibold'>
+        <button className='bg-blue-400 text-white text-xs rounded-2xl hover:brightness-95 transition-all duration-200 w-16 h-9 shadow-md xl:inline font-semibold'>
           <SignedIn>
             <SignOutButton /> 
           </SignedIn>
