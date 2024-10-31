@@ -14,12 +14,18 @@ export default function LeftSidebar() {
       <div className='flex flex-col gap-4 p-3'>
         <Link href='/' className="items-center whitespace-nowrap text-sm sm:text-xl font-semibold dark:text-white"> 
           {/* <FaXTwitter className='w-16 h-16 cursor-pointer p-3 hover:bg-gray-100 rounded-full transition-all duration-200 ' /> */}
+          <div className="px-7">
           <img src="/drc-gov-social-media.png" className="shadow-lg hover:shadow-md object-fit bg bg-none w-20 h-20 pb-1"/> 
         {/* <Link to="/" className="items-center whitespace-nowrap text-sm sm:text-xl font-semibold dark:text-white"> */}
-            <span className="px-2 py-1 bg-gradient-to-r from-blue-500 via-blue-500 to-red-500 rounded-lg text-white">
+            <span className="px-2 bg-gradient-to-r from-blue-500 via-blue-500 to-red-500 rounded-lg text-white">
                   DRC Gov
             </span> 
-          <br/> Social Media 
+          </div>
+          <br/> 
+          <div className="-mt-7">
+          Digital Platform 
+          </div>
+          
         {/* </Link> */}
 
         </Link> 
