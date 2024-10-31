@@ -16,14 +16,14 @@ export default function Post({ post }) {
       </Link>
       <div className='flex-1'>
         <div className='flex items-center justify-between'>
-          {/* <div className='flex items-center space-x-1 whitespace-nowrap'> */}
-          <div className='flex flex-col items-start space-x-1 whitespace-nowrap'>
+          <div className='flex items-center space-x-1 whitespace-nowrap'>
+          {/* <div className='flex flex-col items-start space-x-1 whitespace-nowrap'> */}
             <h4 className='font-bold text-xs truncate max-w-32'>
               {post?.name}
             </h4>
             <span className='text-xs truncate max-w-32'>@{post?.username}</span>
             {/* add dot space here */}
-            {/* <span className='text-xl text-gray-500'>·</span>  */}
+            <span className='text-xl text-gray-500'>·</span> 
             
             <span className='text-xs text-gray-500 flex-1 truncate max-w-32'>
              {moment(post?.createdAt).fromNow()}
