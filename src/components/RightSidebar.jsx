@@ -3,6 +3,7 @@
 import { useRouter } from 'next/navigation';
 import React, { useState } from 'react'
 import News from './News';
+import Myshortcuts from './Myshortcuts';
 
 export default function RightSidebar() {
   const [input, setInput] = useState('')
@@ -30,7 +31,8 @@ export default function RightSidebar() {
          />
       </form>
     </div>
-    <News /> 
+    {/* <News />  */}
+    <Myshortcuts /> 
     </>
   )
 }
