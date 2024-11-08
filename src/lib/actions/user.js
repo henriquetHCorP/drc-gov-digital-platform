@@ -4,7 +4,6 @@ import { connect } from '../mongodb/mongoose';
 
 export const createOrUpdateUser = async (
   id,
-  locked, 
   first_name,
   last_name,
   image_url,
